@@ -10,4 +10,12 @@ function getRandomPosition() {
   
   return { x: randomX, y: randomY };
 }
-
+function moveSquare() {
+    const newPosition = getRandomPosition();
+    square.style.left = newPosition.x + 'px';
+    square.style.top = newPosition.y + 'px';
+  }
+  
+  square.addEventListener('click', moveSquare);
+  moveSquare();
+  
