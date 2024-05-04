@@ -12,13 +12,14 @@ function getRandomPosition() {
   return { x: randomX, y: randomY };
 }
 
-// Function to move the square to a random position
+// Function to move the square to a random position after clicking it
 function moveSquare() {
   const newPosition = getRandomPosition();
   square.style.left = newPosition.x + 'px';
   square.style.top = newPosition.y + 'px';
 }
 
+//Function to get (generate) random color
 function getRandomColor() {
   const letters = '0123456789ABCDEF';
   let color = '#';
@@ -28,11 +29,13 @@ function getRandomColor() {
   return color;
 }
 
+//Function to change color using the generating function
 function changeColor() {
   const newColor = getRandomColor();
   square.style.backgroundColor = newColor;
 }
 
+//On click the functions above will be actived
 square.addEventListener('click', function() {
   moveSquare();
   changeColor();
