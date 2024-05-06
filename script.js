@@ -5,10 +5,8 @@ const container = document.getElementById('container');
 function getRandomPosition() {
   const containerWidth = container.clientWidth - square.clientWidth;
   const containerHeight = container.clientHeight - square.clientHeight;
-  
   const randomX = Math.floor(Math.random() * containerWidth);
   const randomY = Math.floor(Math.random() * containerHeight);
-  
   return { x: randomX, y: randomY };
 }
 
@@ -34,10 +32,19 @@ function changeColor() {
   const newColor = getRandomColor();
   square.style.backgroundColor = newColor;
 }
+//Function clears any existing timeout and sets a new one to hide the square after 2 seconds
+function resetTimeout() {
+  setTimeout(function() {
+    moveSquare();
+    changeColor();
+    resetTimeout();
+  }, 2000);
+}
+
+resetTimeout();
 
 //On click the functions above will be actived
 square.addEventListener('click', function() {
   moveSquare();
   changeColor();
 });
-moveSquare();
