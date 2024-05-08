@@ -1,5 +1,7 @@
 const square = document.getElementById('square');
 const container = document.getElementById('container');
+const counterDisplay = document.getElementById('counter');
+let counter = 0;
 
 // Function to generate a random position
 function getRandomPosition() {
@@ -32,6 +34,12 @@ function changeColor() {
   const newColor = getRandomColor();
   square.style.backgroundColor = newColor;
 }
+
+function incrementCounter() {
+  counter++;
+  counterDisplay.textContent = counter;
+}
+
 //Function clears any existing timeout and sets a new one to hide the square after 2 seconds
 function resetTimeout() {
   setTimeout(function() {
@@ -47,4 +55,5 @@ resetTimeout();
 square.addEventListener('click', function() {
   moveSquare();
   changeColor();
+  incrementCounter();
 });
