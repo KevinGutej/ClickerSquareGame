@@ -2,6 +2,7 @@ const square = document.getElementById('square');
 const container = document.getElementById('container');
 const counterDisplay = document.getElementById('counter');
 let counter = 0;
+let delay = 2000; // Initial delay time in milliseconds
 
 // Function to generate a random position
 function getRandomPosition() {
@@ -12,14 +13,14 @@ function getRandomPosition() {
   return { x: randomX, y: randomY };
 }
 
-// Function to move the square to a random position after clicking it
+// Function to move the square to a random position
 function moveSquare() {
   const newPosition = getRandomPosition();
   square.style.left = newPosition.x + 'px';
   square.style.top = newPosition.y + 'px';
 }
 
-//Function to get (generate) random color
+// Function to generate a random color
 function getRandomColor() {
   const letters = '0123456789ABCDEF';
   let color = '#';
@@ -29,7 +30,7 @@ function getRandomColor() {
   return color;
 }
 
-//Function to change color using the generating function
+// Function to change the square's color
 function changeColor() {
   const newColor = getRandomColor();
   square.style.backgroundColor = newColor;
@@ -40,20 +41,24 @@ function incrementCounter() {
   counterDisplay.textContent = counter;
 }
 
-//Function clears any existing timeout and sets a new one to hide the square after 2 seconds
+// Function to reset the timeout and move the square at the current delay
 function resetTimeout() {
   setTimeout(function() {
     moveSquare();
     changeColor();
     resetTimeout();
-  }, 2000);
+  }, delay);
 }
 
 resetTimeout();
 
-//On click the functions above will be actived
+// Function to handle the click event
 square.addEventListener('click', function() {
   moveSquare();
   changeColor();
   incrementCounter();
+
+  if (delay > 200) {
+    delay -= 100;
+  }
 });
