@@ -3,14 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Move Square</title>
+  <title>Move Square Game</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <h1>Move Square Game</h1>
   <div id="container">
     <div id="square"></div>
   </div>
-  <div id="counter">0</div>
+  <div id="counter">Score: 0</div>
+  <div id="timer">Time Left: 30</div>
+  <div id="gameOver" style="display:none;">
+    <h2>Game Over!</h2>
+    <p>Your final score: <span id="finalScore">0</span></p>
+    <p>High score: <span id="highScore">0</span></p>
+    <button id="restartBtn">Restart Game</button>
+  </div>
+  <audio id="clickSound" src="click.mp3"></audio>
+  <audio id="bgMusic" src="background.mp3" loop></audio>
   <script src="script.js"></script>
 </body>
 </html>
