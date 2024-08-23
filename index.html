@@ -1,27 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Move Square Game</title>
   <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-  <h1>Move Square Game</h1>
-  <div id="container">
-    <div id="square"></div>
+  <nav>
+    <ul>
+      <li><a href="index.html">Move Square</a></li>
+      <li><a href="game2.html">Game 2</a></li>
+      <li><a href="game3.html">Game 3</a></li>
+      <li><a href="game4.html">Game 4</a></li>
+      <li><a href="game5.html">Game 5</a></li>
+    </ul>
+  </nav>
+
+  <div id="gameArea">
+    <div id="container">
+      <div id="square"></div>
+    </div>
+    <div id="counter">Score: 0</div>
+    <div id="timer">Time Left: 30</div>
+    <div id="combo">Combo: x1</div>
+
+    <div id="gameOver">
+      <h2>Game Over</h2>
+      <p>Your Score: <span id="finalScore"></span></p>
+      <p>High Score: <span id="highScore"></span></p>
+      <button id="restartBtn">Restart Game</button>
+    </div>
   </div>
-  <div id="counter">Score: 0</div>
-  <div id="timer">Time Left: 30</div>
-  <div id="combo">Combo: x1</div>
-  <div id="gameOver" style="display:none;">
-    <h2>Game Over!</h2>
-    <p>Your final score: <span id="finalScore">0</span></p>
-    <p>High score: <span id="highScore">0</span></p>
-    <button id="restartBtn">Restart Game</button>
-  </div>
-  <audio id="clickSound" src="click.mp3"></audio>
-  <audio id="bgMusic" src="background.mp3" loop></audio>
+
   <script src="script.js"></script>
 </body>
+
 </html>
